@@ -89,9 +89,9 @@ class FeatureFlags {
     id: 'dark_mode',
     name: 'Dark Mode',
     description: 'System-wide dark theme support',
-    category: ProjectCategory.experimental,
+    category: ProjectCategory.stable,
     compileTimeFlag: 'ENABLE_DARK_MODE',
-    defaultEnabled: false,
+    defaultEnabled: true,
     canToggleAtRuntime: true,
   );
 
@@ -126,11 +126,13 @@ class FeatureFlags {
     voiceToText,
 
     // Experimental
-    darkMode,
     offlineMode,
 
     // Beta
     enhancedSearch,
+
+    // Stable
+    darkMode,
   ];
 
   /// Get features by category
