@@ -5,6 +5,7 @@ import 'core/feature_flag_service.dart';
 import 'screens/settings_screen.dart';
 import 'features/doctor_ai/doctor_ai_screen.dart';
 import 'features/experimental/dark_mode_preview.dart';
+import 'features/experimental/voice_assistant_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -338,6 +339,21 @@ class _HomePageState extends State<HomePage> {
           color: Colors.orange.shade50,
           child: Column(
             children: [
+              if (_featureStates[FeatureFlags.voiceAssistant.id] == true)
+                ListTile(
+                  leading: const Icon(Icons.mic, color: Colors.orange),
+                  title: const Text('Voice Assistant'),
+                  subtitle: const Text('Hands-free voice interaction'),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const VoiceAssistantScreen(),
+                      ),
+                    );
+                  },
+                ),
               if (_featureStates[FeatureFlags.darkMode.id] == true)
                 ListTile(
                   leading: const Icon(Icons.dark_mode, color: Colors.orange),

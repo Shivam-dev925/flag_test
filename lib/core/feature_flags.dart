@@ -81,6 +81,15 @@ class FeatureFlags {
     defaultEnabled: false,
   );
 
+  static const Feature voiceAssistant = Feature(
+    id: 'voice_assistant',
+    name: 'Voice Assistant',
+    description: 'AI-powered voice assistant for hands-free interaction',
+    category: ProjectCategory.experimental,
+    compileTimeFlag: 'ENABLE_VOICE_ASSISTANT',
+    defaultEnabled: false,
+  );
+
   // ========================================================================
   // EXPERIMENTAL FEATURES
   // ========================================================================
@@ -126,6 +135,7 @@ class FeatureFlags {
     voiceToText,
 
     // Experimental
+    voiceAssistant,
     darkMode,
     offlineMode,
 
@@ -160,6 +170,7 @@ class FeatureFlags {
 
   static Future<bool> get isDoctorAIEnabled => doctorAIAvatar.isEnabled();
   static Future<bool> get isVoiceToTextEnabled => voiceToText.isEnabled();
+  static Future<bool> get isVoiceAssistantEnabled => voiceAssistant.isEnabled();
   static Future<bool> get isDarkModeEnabled => darkMode.isEnabled();
   static Future<bool> get isOfflineModeEnabled => offlineMode.isEnabled();
   static Future<bool> get isEnhancedSearchEnabled => enhancedSearch.isEnabled();
